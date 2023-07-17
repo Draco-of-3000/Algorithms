@@ -47,5 +47,15 @@ class Linkedlist
         current_node
     end
 
+    def at(index)
+        return nil if index < 0 || index >= size 
+        current_node = @head 
+        count = 0
+        while count < index 
+            current_node = current_node.next_node
+            count += 1
+        end
+        current_node
+    end
 
 end

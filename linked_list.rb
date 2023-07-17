@@ -37,4 +37,8 @@ class Linkedlist
     def head
         @head
     end
+
+    def tail
+        @tail
+    end
 end

@@ -75,4 +75,16 @@ class Linkedlist
         end
         false
     end
+
+    def find(value)
+        current_node = @head
+        index = 0
+
+        while current_node
+            return index if current_node.value == value
+            current_node = current_node.next_node
+            index += 1
+        end
+        nil
+    end
 end

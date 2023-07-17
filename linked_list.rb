@@ -125,7 +125,7 @@ class Linkedlist
     end
 
     def remove_at(index)
-        return if index < 0 || inex >= size
+        return if index < 0 || index >= size
 
         if index == 0
             @head = @head.next_node

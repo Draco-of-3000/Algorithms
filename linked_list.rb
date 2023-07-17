@@ -61,6 +61,8 @@ class Linkedlist
     end
 
     def pop
+        return nil if @head.nil?
+        
         popped_node = tail_node
     end
 

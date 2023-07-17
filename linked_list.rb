@@ -3,7 +3,6 @@ class Linkedlist
 
     def initialize
         @head = nil
-        @tail = nil
     end
 
     def append(value)
@@ -41,4 +40,6 @@ class Linkedlist
     def tail
         @tail
     end
+
+
 end

@@ -32,4 +32,8 @@ class Linkedlist
         end
         count
     end
+
+    def head
+        @head
+    end
 end

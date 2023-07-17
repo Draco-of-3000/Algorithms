@@ -7,8 +7,6 @@ class Node
     end
 end
   
-
-
 class Linkedlist
     attr_reader :head, :tail
 

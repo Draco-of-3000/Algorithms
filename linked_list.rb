@@ -123,4 +123,16 @@ class Linkedlist
             current_node.next_node = new_node
         end
     end
+
+    def remove_at(index)
+        return if index < 0 || inex >= size
+
+        if index == 0
+            @head = @head.next_node
+        else
+            current_node = at(index - 1)
+            current_node.next_node = current_node.next_node.next_node
+            @tail = current_node if current_node.next_node.nil?
+        end
+    end
 end

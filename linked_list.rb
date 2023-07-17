@@ -62,8 +62,17 @@ class Linkedlist
 
     def pop
         return nil if @head.nil?
-        
+
         popped_node = tail_node
     end
 
+    def contains?(value)
+        current_node = @head
+
+        while current_node
+            return true if current_node.value == value
+            current_node = current_node.next_node
+        end
+        false
+    end
 end

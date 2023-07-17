@@ -3,6 +3,7 @@ class Linkedlist
 
     def initialize
         @head = nil
+        @tail = nil
     end
 
     def append(value)
@@ -37,18 +38,19 @@ class Linkedlist
         @head
     end
 
-    def tail
+    def tail_node
         return nil if @head.nil?
 
         current_node = @head
         while current_node.next_node
             current_node = current_node.next_node
         end
-        current_node
+        @tail = current_node
     end
 
     def at(index)
         return nil if index < 0 || index >= size 
+
         current_node = @head 
         count = 0
         while count < index 
@@ -56,6 +58,10 @@ class Linkedlist
             count += 1
         end
         current_node
+    end
+
+    def pop
+        popped_node = tail_node
     end
 
 end

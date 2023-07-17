@@ -38,7 +38,13 @@ class Linkedlist
     end
 
     def tail
-        @tail
+        return nil if @head.nil?
+
+        current_node = @head
+        while current_node.next_node
+            current_node = current_node.next_node
+        end
+        current_node
     end
 
 

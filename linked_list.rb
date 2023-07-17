@@ -22,4 +22,14 @@ class Linkedlist
         new_node.next_node = @head
         @head = new_node
     end
+
+    def size
+        count = 0
+        current_node = @head
+        while current_node
+            count += 1
+            current_node = current_node.next_node
+        end
+        count
+    end
 end

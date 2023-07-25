@@ -153,4 +153,29 @@ class Tree
         postorder_recursive(@root, &block)
     end
     
+    private
+
+    def inorder_recursive(node, &block)
+        return if node.nil?
+
+        inorder_recursive(node.left, &block)
+        block.call(node)
+        inorder_recursive(node.right, &block)
+    end
+
+    def preorder_recursive(node, &block)
+        return if node.nil?
+
+        block.call(node)
+        preorder_recursive(node.left, &block)
+        preorder_recursive(node.right, &block)
+    end
+
+    def postorder_recursive(node, &block)
+        return if node.nil?
+
+        postorder_recursive(node.left, &block)
+        postorder_recursive(node.right, &block)
+        block.call(node)
+    end
 end

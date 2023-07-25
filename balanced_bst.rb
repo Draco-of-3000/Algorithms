@@ -120,4 +120,16 @@ class Tree
             return find_node(node.right, value)
         end
     end
+
+    def level_order(&block)
+        return enum_for(:level_order) unless block_given?
+
+        queue = [@root]
+        while !queue.empty?
+            current_node = queue.shift
+            block.call(current_node)
+            queue << current_node.left if current_node.left
+            queue << current_node.right if current_node.right
+        end
+    end
 end

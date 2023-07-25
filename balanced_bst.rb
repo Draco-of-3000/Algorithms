@@ -178,4 +178,15 @@ class Tree
         postorder_recursive(node.right, &block)
         block.call(node)
     end
+
+    public 
+
+    def height(node = @root)
+        return -1 if node.nil?
+
+        left_height = height(node.left)
+        right_height = height(node.right)
+
+        # Return the maximum height between left and right subtrees, plus 1 for the current node itself.
+        return 1 + [left_height, right_height].max
 end

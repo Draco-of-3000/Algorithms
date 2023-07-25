@@ -13,3 +13,11 @@ class Node
         @data <=> other.data
     end
 end
+
+class Tree
+    attr_accessor :root
+
+    def initialize(arr)
+        @root = build_tree(arr)
+    end
+end

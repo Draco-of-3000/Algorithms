@@ -59,4 +59,45 @@ class Tree
     def delete(value)
         @root = delete_node(@root, value)
     end
+
+    private
+
+    def insert_node(node, value)
+        return Node.new(value) if node.nil?
+
+        if value < node.data
+            node.left = insert_node(node.left, value)
+        elsif value > node.data
+            node.right = insert_node(node.right, value)
+        end
+
+        node
+    end
+
+    def delete_node(node, value)
+        return node if node.nil?
+
+        if value < node.data
+            node.left = delete_node(node.left, value)
+        elsif value > node.data
+            node.right = delete_node(node.right, value)
+        else 
+            # If there's no child or one child
+            return node.left if node.right.nil?
+            return node.right if node.left.nil?
+
+            # If there are two children
+            min_right_subtree = find_min(node.right)
+            node.data = min_right_subtree.data
+            node.right = delete_node(node.right, min_right_subtree.data)
+        end
+
+        node
+    end
+
+    def find_min(node)
+        current = node
+        current = current.left while current.left
+        current
+    end
 end

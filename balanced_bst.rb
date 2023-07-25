@@ -121,6 +121,8 @@ class Tree
         end
     end
 
+    public
+
     def level_order(&block)
         return enum_for(:level_order) unless block_given?
 
@@ -132,4 +134,23 @@ class Tree
             queue << current_node.right if current_node.right
         end
     end
+
+    def inorder(&block)
+        return enum_for(:inorder) unless block_given?
+
+        inorder_recursive(@root, &block)
+    end
+
+    def preorder(&block)
+        return enum_for(:preorder) unless block_given?
+
+        preorder_recursive(@root, &block)
+    end
+
+    def postorder(&block)
+        return enum_for(:postorder) unless block_given?
+
+        postorder_recursive(@root, &block)
+    end
+    
 end

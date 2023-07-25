@@ -100,4 +100,24 @@ class Tree
         current = current.left while current.left
         current
     end
+
+    public
+
+    def find(value)
+        return find_node(@root, value)
+    end
+
+    private
+
+    def find_node(node, value)
+        return nil if node.nil?
+
+        if value == node.data
+            return node
+        elsif value < node.data
+            return find_node(node.left, value)
+        else
+            return find_node(node.right, value)
+        end
+    end
 end

@@ -20,4 +20,10 @@ class Tree
     def initialize(arr)
         @root = build_tree(arr)
     end
+
+    def build_tree(arr)
+        sorted_arr = arr.uniq.sort
+
+        @root = build_tree_helper(sorted_arr, 0, sorted_arr.length - 1)
+    end
 end

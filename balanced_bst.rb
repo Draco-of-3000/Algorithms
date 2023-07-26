@@ -189,4 +189,5 @@ class Tree
 
         # Return the maximum height between left and right subtrees, plus 1 for the current node itself.
         return 1 + [left_height, right_height].max
+    end
 end

@@ -219,4 +219,15 @@ class Tree
 
         return false
     end
+
+    public 
+
+    def rebalance
+        # Perform an inorder traversal to extract node values
+        inorder_values = []
+        inorder { |node| inorder_values << node.data}
+
+        # Construct a new balanced binary search tree using the inorder values
+        @root = build_tree(inorder_values)
+    end
 end

@@ -198,4 +198,25 @@ class Tree
 
         return parent_depth + 1
     end
+
+    def balanced?
+        return true if @root.nil?
+
+        balanced_recursive?(@root)
+    end
+
+    private
+
+    def balanced_recursive?(node)
+        return true if node.nil?
+
+        left_height = height(node.left)
+        right_height = height(node.right)
+
+        if (left_height - right_height).abs <= 1 && balanced_recursive?(node.left) && balanced_recursive?(node.right)
+            return true
+        end
+
+        return false
+    end
 end

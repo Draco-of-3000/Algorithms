@@ -190,4 +190,12 @@ class Tree
         # Return the maximum height between left and right subtrees, plus 1 for the current node itself.
         return 1 + [left_height, right_height].max
     end
+
+    def depth(node)
+        return -1 if node.nil?
+
+        parent_depth = depth(node.parent)
+
+        return parent_depth + 1
+    end
 end

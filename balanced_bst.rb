@@ -1,5 +1,5 @@
 class Node
-    include comparable
+    include Comparable
 
     attr_accessor :data, :left, :right
 
